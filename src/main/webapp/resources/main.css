@@ -1,0 +1,11 @@
+body{
+    background-color: beige;
+}
+
+
+.fossilFrame{
+    height: 50px;
+    width: 50px;
+    float: left;
+    border: black thin solid;
+}

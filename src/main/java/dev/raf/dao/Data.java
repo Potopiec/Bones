@@ -1,4 +1,4 @@
-package dev.raf.db;
+package dev.raf.dao;
 
 import dev.raf.domain.Coordinats;
 import dev.raf.domain.FossilEntyty;
@@ -8,13 +8,13 @@ import dev.raf.domain.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockDataBase {
+class Data {
 
     List<FossilEntyty> fossilEntityList = new ArrayList<FossilEntyty>();
 
 
 
-    public MockDataBase(){
+    public Data(){
         fossilEntityList.add(new FossilEntyty(1, FossilTypes.BODY, Period.CENOZOIC,"slug1",new Coordinats(150.25,15.45),22,"something descriptiv1",12.50f));
         fossilEntityList.add(new FossilEntyty(2, FossilTypes.PSEUDO, Period.MESSOSOIC,"dog2",new Coordinats(500.25,90.45),8,"something descriptiv2",22.50f));
         fossilEntityList.add(new FossilEntyty(3, FossilTypes.CARBON, Period.PALEOZOIC,"tree3",new Coordinats(1250.25,601.45),150,"something descriptiv3",500.50f));
