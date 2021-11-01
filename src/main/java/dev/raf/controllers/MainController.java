@@ -1,24 +1,37 @@
 package dev.raf.controllers;
 
-import dev.raf.dao.DbFacade;
+import dev.raf.dao.QueryHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class MainController {
 
     @Autowired
-    private DbFacade facade;
+    private QueryHandler handler;
 
     @RequestMapping("/")
-    public String getCollectionList(Model model){
+    public String getCollectionList(HttpServletRequest request, Model model){
 
-        model.addAttribute("fossils",facade.getData());
+        String searchParameter = request.getParameter("sortBy");
 
+        if (searchParameter == null) {
+            model.addAttribute("fossils", handler.getAllEntries());
+        }else {
+            model.addAttribute("fossils", handler.getAllEntriesSortedBy(searchParameter));
+        }
 
-        return "/Collection";
+        return "collection";
+    }
+
+    @RequestMapping("/add")
+    public String addToCollection(){
+System.out.println("jest");
+        return "add";
     }
 
 

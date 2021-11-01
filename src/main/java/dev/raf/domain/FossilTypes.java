@@ -1,5 +1,5 @@
 package dev.raf.domain;
 
 public enum FossilTypes {
- BODY,MOLECULAR,TRACE,CARBON,PSEUDO
+ BODY,CARBON,MOLECULAR,PSEUDO,TRACE,UNKNOWNTYPE
 }

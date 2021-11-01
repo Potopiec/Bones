@@ -1,9 +1,8 @@
 package dev.raf.dao;
 
-import dev.raf.domain.FossilEntyty;
+import java.sql.Connection;
 
-import java.util.List;
 
 interface IDbConnection {
-    List<FossilEntyty> getFossilList();
+    Connection getConnection();
 }

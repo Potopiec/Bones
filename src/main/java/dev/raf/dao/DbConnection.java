@@ -1,28 +1,39 @@
 package dev.raf.dao;
 
-import dev.raf.domain.FossilEntyty;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.sql.*;
+
+
 
 @Component
-class DbConnection implements IDbConnection {
+@PropertySource("classpath:main.properties")
+class DbConnection implements IDbConnection{
 
+    private Connection connection;
 
-    private IDbConnection connection;
-    private Data data;
+    DbConnection(@Value("${connection.driver}")String driverPath,@Value("${connection.user}")String user,@Value("${connection.password}")String password) {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    driverPath,
+                    user,
+                    password);
 
-
-    @Autowired
-    DbConnection() {
-        data = new Data();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
-
 
     @Override
-    public List<FossilEntyty> getFossilList() {
-        return data.fossilEntityList;
+    public Connection getConnection(){
+        return this.connection;
     }
+
+
+
+
 }

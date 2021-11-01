@@ -1,23 +1,17 @@
 package dev.raf.dao;
 
-import dev.raf.domain.FossilEntyty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.sql.Connection;
 
 @Component
-public class DbFacade {
-    private IDbConnection connection;
+public class DbFacade implements IDbFacade {
+    Connection connection;
 
     @Autowired
-    public DbFacade(IDbConnection connection) {
-        this.connection = connection;
-    }
-
-
-    public List<FossilEntyty> getData(){
-        return connection.getFossilList();
+    public DbFacade(IDbConnection connector) {
+        this.connection = connector.getConnection();
     }
 
 }
