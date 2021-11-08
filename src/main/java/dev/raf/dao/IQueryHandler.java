@@ -1,10 +1,11 @@
 package dev.raf.dao;
 
-import dev.raf.dao.dto.FossilQueryDto;
+import dev.raf.dao.dto.FossilDto;
 
 import java.util.List;
 
-interface IQueryHandler {
-    List<FossilQueryDto> getAllEntries();
-    List<FossilQueryDto> getAllEntriesSortedBy(String header);
+public interface IQueryHandler {
+    List<FossilDto> getAllEntries();
+    List<FossilDto> getAllEntriesSortedBy(String header);
+    FossilDto getElementById(int id);
 }

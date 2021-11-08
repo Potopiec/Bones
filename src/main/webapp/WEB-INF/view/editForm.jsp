@@ -8,15 +8,16 @@
   </head>
   <body>
 
-    <spring:form action="succes" method="post" modelAttribute="saveFossil">
+    <spring:form action="edit" method="post" modelAttribute="editFossil">
 
-      <spring:select path="period"  name="period">
+      <spring:input path="id" type="hidden" value="${editFossil.id}"/>
+      <spring:select path="period"  name="period" itemValue="${editFossil.period}">
         <spring:option value="CENOZOIC" label="cenozoic"/>
         <spring:option value="MESSOSOIC" label="messosoic"/>
         <spring:option value="PALEOZOIC" label="paleozoic"/>
         <spring:option value="UNKNOWNPERIOD" label="unknownperid"/>
       </spring:select>
-      <spring:select path="type" name="type">
+      <spring:select path="type" name="type" itemValue="${editFossil.type}">
         <spring:option value="BODY" label="body"/>
         <spring:option value="CARBON" label="carbon"/>
         <spring:option value="MOLECULAR" label="molecular"/>
@@ -24,9 +25,9 @@
         <spring:option value="TRACE" label="trace"/>
         <spring:option value="UNKNOWNTYPE" label="unknowntype"/>
       </spring:select>
-      <spring:input path="name" type="text" name="" value="name" placeholder="name"/>
-      <spring:input path="location" type="text" name="" value="locantion" placeholder="location"/>
-      <spring:input path="state" type="text" name="" value="state" placeholder="state"/>
+      <spring:input path="name" type="text"  value="${editFossil.name}" />
+      <spring:input path="location" type="text"  value="${editFossil.location}" />
+      <spring:input path="state" type="text" value="${editFossil.state}"/>
 
       <input type="submit" value="Submit">
 

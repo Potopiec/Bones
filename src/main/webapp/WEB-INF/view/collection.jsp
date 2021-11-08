@@ -27,13 +27,14 @@
     </table>
 
     <table id="collection">
-        <c:forEach items="${fossils}" var="fossilsNodes">
+        <c:forEach items="${fossilsList}" var="fossilsNodes">
             <tr id="id_${fossilsNodes.id}">
-                <td>${fossilsNodes.types}</td>
+                <td>${fossilsNodes.type}</td>
                 <td>${fossilsNodes.period}</td>
                 <td>${fossilsNodes.name}</td>
-                <td>${fossilsNodes.place}</td>
+                <td>${fossilsNodes.location}</td>
                 <td>${fossilsNodes.state}</td>
+                <td><a href="<c:url value="/update?id=${fossilsNodes.id}"/>">update</a></td>
 
             </tr>
         </c:forEach>

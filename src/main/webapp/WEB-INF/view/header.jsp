@@ -5,6 +5,7 @@
     <div id="searchContainer">
         <form name="searchForm" action="/">
             <input type="text"/>
+
             <input type="submit" value="search"/>
         </form>
     </div>

@@ -1,4 +1,12 @@
 package dev.raf.dao;
 
-interface IDbFacade {
+import dev.raf.dao.dto.FossilDto;
+
+
+public interface IDbFacade {
+
+    void save(FossilDto fossil);
+    void delete(int id);
+    void update(FossilDto fossilDto);
+
 }
